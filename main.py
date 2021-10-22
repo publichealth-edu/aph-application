@@ -71,12 +71,12 @@ def login():
         filename = files.save(reference)
 
         with smtplib.SMTP("smtp.mail.yahoo.com") as connection:
-        connection.starttls()
-        connection.login(user=FROM_EMAIL, password=PASSWORD)
-        connection.sendmail(
-            from_addr=FROM_EMAIL,
-            to_addrs=TO_EMAIL,
-            msg=f"Subject: New APH Membership Application\n\nFirst name: {fname}\n\nMiddle name: {mname}\n\nLast name: {lname}\n\nEmail: {email}\n\nPhone: {phone}\n\nCountry of Citizenship: {citizen}\n\nCountry of Residence: {residence}\n\nCategory being applied for: {category}"
+            connection.starttls()
+            connection.login(user=FROM_EMAIL, password=PASSWORD)
+            connection.sendmail(
+                from_addr=FROM_EMAIL,
+                to_addrs=TO_EMAIL,
+                msg=f"Subject: New APH Membership Application\n\nFirst name: {fname}\n\nMiddle name: {mname}\n\nLast name: {lname}\n\nEmail: {email}\n\nPhone: {phone}\n\nCountry of Citizenship: {citizen}\n\nCountry of Residence: {residence}\n\nCategory being applied for: {category}"
                     )
         
         
