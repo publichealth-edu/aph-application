@@ -34,7 +34,7 @@ class MyForm(FlaskForm):
 app = Flask(__name__)
 Bootstrap(app)
 app.secret_key = 'hello_world'
-app.config['UPLOADED_ATTACHMENTS_DEST'] = 'C:/Users/Hackman Gandalf/hello/100-days-of-code/application form/uploads'
+app.config['UPLOADED_ATTACHMENTS_DEST'] = 'uploads'
 
 files = UploadSet('attachments', DOCUMENTS)
 configure_uploads(app, files)
