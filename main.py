@@ -46,8 +46,8 @@ def home():
 def success():
     return render_template('success.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/register', methods=["GET", "POST"])
+def register():
     form = MyForm()
     if form.validate_on_submit():
         fname = form.fname.data
