@@ -51,36 +51,36 @@ def success():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = MyForm()
-    if form.validate_on_submit():
-        fname = form.fname.data
-        mname = form.mname.data
-        lname = form.lname.data
-        email = form.email.data
-        phone = form.phone.data
-        citizen = form.citizen.data
-        residence = form.residence.data
-        category = form.category.data
-        support = form.support.data
-        resume = form.resume.data
-        cert = form.cert.data
-        reference = form.reference.data
+#     if form.validate_on_submit():
+#         fname = form.fname.data
+#         mname = form.mname.data
+#         lname = form.lname.data
+#         email = form.email.data
+#         phone = form.phone.data
+#         citizen = form.citizen.data
+#         residence = form.residence.data
+#         category = form.category.data
+#         support = form.support.data
+#         resume = form.resume.data
+#         cert = form.cert.data
+#         reference = form.reference.data
 
-        filename = files.save(support)
-        filename = files.save(resume)
-        filename = files.save(cert)
-        filename = files.save(reference)
+#         filename = files.save(support)
+#         filename = files.save(resume)
+#         filename = files.save(cert)
+#         filename = files.save(reference)
 
-        with smtplib.SMTP("smtp.mail.yahoo.com") as connection:
-            connection.starttls()
-            connection.login(user=FROM_EMAIL, password=PASSWORD)
-            connection.sendmail(
-                from_addr=FROM_EMAIL,
-                to_addrs=TO_EMAIL,
-                msg=f"Subject: New APH Membership Application\n\nFirst name: {fname}\n\nMiddle name: {mname}\n\nLast name: {lname}\n\nEmail: {email}\n\nPhone: {phone}\n\nCountry of Citizenship: {citizen}\n\nCountry of Residence: {residence}\n\nCategory being applied for: {category}"
-                    )
+#         with smtplib.SMTP("smtp.mail.yahoo.com") as connection:
+#             connection.starttls()
+#             connection.login(user=FROM_EMAIL, password=PASSWORD)
+#             connection.sendmail(
+#                 from_addr=FROM_EMAIL,
+#                 to_addrs=TO_EMAIL,
+#                 msg=f"Subject: New APH Membership Application\n\nFirst name: {fname}\n\nMiddle name: {mname}\n\nLast name: {lname}\n\nEmail: {email}\n\nPhone: {phone}\n\nCountry of Citizenship: {citizen}\n\nCountry of Residence: {residence}\n\nCategory being applied for: {category}"
+#                     )
         
         
-        return render_template('success.html')
+#         return render_template('success.html')
     return render_template('login.html', form=form)
 
 if __name__ == "__main__":
