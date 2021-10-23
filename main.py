@@ -46,9 +46,10 @@ def home():
 def success():
     return render_template('success.html')
 
-@app.route('/register')#, methods=["GET", "POST"])
+@app.route('/register', methods=["GET", "POST"])
 def register():
-    return render_template('login.html')#, form=form)
+    form = MyForm()
+    return render_template('login.html', form=form)
 #     form = MyForm()
 #     if form.validate_on_submit():
 #         fname = form.fname.data
