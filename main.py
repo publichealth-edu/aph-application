@@ -48,7 +48,8 @@ def success():
 
 @app.route('/register')#, methods=["GET", "POST"])
 def register():
-    form = MyForm()
+    return render_template('login.html')#, form=form)
+#     form = MyForm()
 #     if form.validate_on_submit():
 #         fname = form.fname.data
 #         mname = form.mname.data
@@ -78,7 +79,7 @@ def register():
 #                     )
         
 #         return render_template('success.html')
-    return render_template('login.html', form=form)
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
