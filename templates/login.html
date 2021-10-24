@@ -11,8 +11,7 @@ Login
         <h4>Membership Application form</h4>
         <br>
 
-        {{ wtf.quick_form(form) }}
-
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
     </div>
 
 {% endblock %}
