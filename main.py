@@ -32,10 +32,6 @@ class MyForm(FlaskForm):
 app = Flask(__name__)
 Bootstrap(app)
 app.secret_key = os.environ.get("SECRET_KEY")
-app.config['UPLOADED_ATTACHMENTS_DEST'] = 'uploads'
-
-files = UploadSet('attachments', DOCUMENTS)
-configure_uploads(app, files)
 
 
 @app.route('/')
@@ -50,36 +46,6 @@ def success():
 def register():
     form = MyForm()
     return render_template('login.html', form=form)
-#     form = MyForm()
-#     if form.validate_on_submit():
-#         fname = form.fname.data
-#         mname = form.mname.data
-#         lname = form.lname.data
-#         email = form.email.data
-#         phone = form.phone.data
-#         citizen = form.citizen.data
-#         residence = form.residence.data
-#         category = form.category.data
-#         support = form.support.data
-#         resume = form.resume.data
-#         cert = form.cert.data
-#         reference = form.reference.data
-
-#         filename = files.save(support)
-#         filename = files.save(resume)
-#         filename = files.save(cert)
-#         filename = files.save(reference)
-
-#         with smtplib.SMTP("smtp.mail.yahoo.com") as connection:
-#             connection.starttls()
-#             connection.login(user=FROM_EMAIL, password=PASSWORD)
-#             connection.sendmail(
-#                 from_addr=FROM_EMAIL,
-#                 to_addrs=TO_EMAIL,
-#                 msg=f"Subject: New APH Membership Application\n\nFirst name: {fname}\n\nMiddle name: {mname}\n\nLast name: {lname}\n\nEmail: {email}\n\nPhone: {phone}\n\nCountry of Citizenship: {citizen}\n\nCountry of Residence: {residence}\n\nCategory being applied for: {category}"
-#                     )
-        
-#         return render_template('success.html')
     
 
 if __name__ == "__main__":
