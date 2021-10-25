@@ -20,8 +20,8 @@ TO_EMAIL = os.environ.get("TO_EMAIL")
 
 app = Flask(__name__)
 Bootstrap(app)
-app.secret_key = 'hello_world'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Uploads.db'
+app.secret_key = os.environ.get("SECRET_KEY")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -165,14 +165,14 @@ def login():
         db.session.commit()
         
         
-        # with smtplib.SMTP("smtp.mail.yahoo.com") as connection:
-        #     connection.starttls()
-        #     connection.login(user=FROM_EMAIL, password=PASSWORD)
-        #     connection.sendmail(
-        #         from_addr=FROM_EMAIL,
-        #         to_addrs=TO_EMAIL,
-        #         msg=f"Subject: New APH Membership Application\n\nFirst name: {fname}\n\nMiddle name: {mname}\n\nLast name: {lname}\n\nEmail: {email}\n\nPhone: {phone}\n\nCountry of Citizenship: {citizen}\n\nCountry of Residence: {residence}\n\nCategory being applied for: {category}"
-        #             )
+        with smtplib.SMTP("smtp.mail.yahoo.com") as connection:
+            connection.starttls()
+            connection.login(user=FROM_EMAIL, password=PASSWORD)
+            connection.sendmail(
+                from_addr=FROM_EMAIL,
+                to_addrs=TO_EMAIL,
+                msg=f"Subject: New APH Membership Application\n\nFirst name: {fname}\n\nMiddle name: {mname}\n\nLast name: {lname}\n\nEmail: {email}\n\nPhone: {phone}\n\nCountry of Citizenship: {citizen}\n\nCountry of Residence: {residence}\n\nCategory being applied for: {category}"
+                    )
         
         
         return render_template('success.html')
