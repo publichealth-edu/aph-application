@@ -2,13 +2,13 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}
-Login
+Register
 {% endblock %}
 
 {% block content %}
 <div class="container" style="padding: 2em;">
     <h1>The Academy of Public Health</h1>
-    <h4>Membership Application form</h4>
+    <h4>Registration</h4>
     <br>
 
     {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
