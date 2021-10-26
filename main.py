@@ -146,7 +146,7 @@ def delete(id):
 def success():
     return render_template('success.html')
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/apply', methods=['GET', 'POST'])
 def login():
     form = MyForm()
     if form.validate_on_submit():
