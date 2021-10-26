@@ -8,6 +8,7 @@ from flask_uploads import UploadSet, configure_uploads, DOCUMENTS, UploadSet
 import smtplib
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
+import re
 from io import BytesIO
 from flask_sqlalchemy import SQLAlchemy
 from functools import wraps
