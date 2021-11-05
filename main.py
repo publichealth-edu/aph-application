@@ -13,6 +13,8 @@ from io import BytesIO
 from flask_sqlalchemy import SQLAlchemy
 from functools import wraps
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
+import sys
+import logging
 
 
 FROM_EMAIL = os.environ.get("FROM_EMAIL")
@@ -20,6 +22,8 @@ PASSWORD = os.environ.get("PASSWORD")
 TO_EMAIL = os.environ.get("TO_EMAIL")
 
 app = Flask(__name__)
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 Bootstrap(app)
 app.secret_key = os.environ.get("SECRET_KEY")
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
