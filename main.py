@@ -112,25 +112,25 @@ def home():
 @login_required
 def downloads(id):
     item = Uploads.query.get(id)
-    return send_file(BytesIO(item.statement_data), mimetype='application/pdf', as_attachment=True, download_name=item.statement_name)
+    return send_file(BytesIO(item.statement_data), mimetype='application/pdf', as_attachment=True, attachment_filename=item.statement_name)
 
 @app.route('/downloadr/<id>', methods=["GET"])
 @login_required
 def downloadr(id):
     item = Uploads.query.get(id)
-    return send_file(BytesIO(item.resume_data), mimetype='application/pdf', as_attachment=True, download_name=item.resume_name)
+    return send_file(BytesIO(item.resume_data), mimetype='application/pdf', as_attachment=True, attachment_filename=item.resume_name)
 
 @app.route('/downloadc/<id>', methods=["GET"])
 @login_required
 def downloadc(id):
     item = Uploads.query.get(id)
-    return send_file(BytesIO(item.certificate_data), mimetype='application/pdf', as_attachment=True, download_name=item.certificate_name)
+    return send_file(BytesIO(item.certificate_data), mimetype='application/pdf', as_attachment=True, attachment_filename=item.certificate_name)
 
 @app.route('/downloadrr/<id>', methods=["GET"])
 @login_required
 def downloadrr(id):
     item = Uploads.query.get(id)
-    return send_file(BytesIO(item.reference_data), mimetype='application/pdf', as_attachment=True, download_name=item.reference_name)
+    return send_file(BytesIO(item.reference_data), mimetype='application/pdf', as_attachment=True, attachment_filename=item.reference_name)
 
 @app.route('/files', methods=["GET"])
 @login_required
